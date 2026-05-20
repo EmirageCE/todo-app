@@ -25,6 +25,7 @@ STYLE = """
         border-radius: 6px;
         padding: 6px 10px;
         background: white;
+        color: #1a1a1a;
     }
     QLineEdit:focus {
         border-color: #4a90d9;
@@ -57,6 +58,7 @@ STYLE = """
     QListWidget::item {
         padding: 6px 4px;
         border-radius: 4px;
+        color: #1a1a1a;
     }
     QListWidget::item:selected {
         background-color: #dce9f7;
