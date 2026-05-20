@@ -15,27 +15,34 @@ STYLE = """
     QMainWindow {
         background-color: #f0f4f8;
     }
-    QWidget {
+
+    QWidget#central {
         background-color: #f0f4f8;
         font-family: Segoe UI;
         font-size: 13px;
     }
+
     QLineEdit {
         border: 2px solid #c0cfe0;
         border-radius: 6px;
         padding: 6px 10px;
-        background: white;
+        background-color: white;
         color: #1a1a1a;
+        font-size: 13px;
+        font-family: Segoe UI;
     }
     QLineEdit:focus {
         border-color: #4a90d9;
     }
+
     QPushButton {
         background-color: #4a90d9;
         color: white;
         border: none;
         border-radius: 6px;
         padding: 7px 14px;
+        font-size: 13px;
+        font-family: Segoe UI;
     }
     QPushButton:hover {
         background-color: #357abd;
@@ -43,30 +50,46 @@ STYLE = """
     QPushButton:pressed {
         background-color: #2a6099;
     }
+
     QPushButton#delete_btn {
         background-color: #e05c5c;
     }
     QPushButton#delete_btn:hover {
         background-color: #c04444;
     }
+    QPushButton#delete_btn:pressed {
+        background-color: #a33535;
+    }
+
     QListWidget {
         border: 2px solid #c0cfe0;
         border-radius: 6px;
-        background: white;
+        background-color: white;
         padding: 4px;
+        font-size: 13px;
+        font-family: Segoe UI;
+        color: #1a1a1a;
+        outline: none;
     }
     QListWidget::item {
-        padding: 6px 4px;
+        padding: 8px 6px;
         border-radius: 4px;
         color: #1a1a1a;
+        background-color: white;
+    }
+    QListWidget::item:hover {
+        background-color: #eef4fc;
     }
     QListWidget::item:selected {
         background-color: #dce9f7;
         color: #1a1a1a;
     }
+
     QLabel {
-        color: #555;
+        color: #555555;
         font-size: 12px;
+        font-family: Segoe UI;
+        background-color: transparent;
     }
 """
 
@@ -78,6 +101,7 @@ class ToDoApp(QMainWindow):
         self.setMinimumSize(400, 520)
 
         central = QWidget()
+        central.setObjectName("central")
         self.setCentralWidget(central)
 
         main_layout = QVBoxLayout()
@@ -86,7 +110,7 @@ class ToDoApp(QMainWindow):
         central.setLayout(main_layout)
 
         title = QLabel("Görev Listesi")
-        title.setStyleSheet("font-size: 18px; font-weight: bold; color: #2c3e50;")
+        title.setStyleSheet("font-size: 18px; font-weight: bold; color: #2c3e50; background-color: transparent;")
         main_layout.addWidget(title)
 
         input_layout = QHBoxLayout()
@@ -95,7 +119,7 @@ class ToDoApp(QMainWindow):
         self.task_input.returnPressed.connect(self.add_task)
 
         add_btn = QPushButton("Ekle")
-        add_btn.clicked.connect(self.add_task)
+        add_btn.clicked.connect(lambda: self.add_task())
 
         input_layout.addWidget(self.task_input)
         input_layout.addWidget(add_btn)
