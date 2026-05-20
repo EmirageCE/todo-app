@@ -85,12 +85,10 @@ class ToDoApp(QMainWindow):
         main_layout.setContentsMargins(16, 16, 16, 16)
         central.setLayout(main_layout)
 
-        # --- Başlık ---
         title = QLabel("Görev Listesi")
         title.setStyleSheet("font-size: 18px; font-weight: bold; color: #2c3e50;")
         main_layout.addWidget(title)
 
-        # --- Giriş alanı ---
         input_layout = QHBoxLayout()
         self.task_input = QLineEdit()
         self.task_input.setPlaceholderText("Yeni görev gir...")
@@ -102,18 +100,15 @@ class ToDoApp(QMainWindow):
         input_layout.addWidget(self.task_input)
         input_layout.addWidget(add_btn)
 
-        # --- Görev listesi ---
         self.task_list = QListWidget()
         self.task_list.itemChanged.connect(self.update_counter)
 
-        # --- Butonlar ---
         btn_layout = QHBoxLayout()
         delete_btn = QPushButton("Seçili görevi sil")
         delete_btn.setObjectName("delete_btn")
         delete_btn.clicked.connect(self.delete_task)
         btn_layout.addWidget(delete_btn)
 
-        # --- Sayaç ---
         self.counter_label = QLabel("0/0 tamamlandı")
 
         main_layout.addLayout(input_layout)
