@@ -85,6 +85,23 @@ STYLE = """
         color: #1a1a1a;
     }
 
+    QListWidget::indicator {
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+    }
+    QListWidget::indicator:unchecked {
+        border: 2px solid #c0cfe0;
+        background-color: white;
+    }
+    QListWidget::indicator:unchecked:hover {
+        border: 2px solid #4a90d9;
+    }
+    QListWidget::indicator:checked {
+        border: 2px solid #4a90d9;
+        background-color: #4a90d9;
+    }
+
     QLabel {
         color: #555555;
         font-size: 12px;
